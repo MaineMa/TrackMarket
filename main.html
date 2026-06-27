@@ -1,9 +1,56 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackMarket - Iniciar Sesión</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+<div class="login-container">
+    <div class="login-box">
+        <div class="logo-container">
+            <img src="assets/images/trackmarket_logo.png" alt="TrackMarket Logo">
+        </div>
+
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <label>
+                Correo Electronico
+            </label>
+            <input 
+                type="text"
+                id="email"
+                placeholder=""
+                required
+            >
+            <label>
+                Contraseña
+            </label>
+            <input 
+                type="password"
+                id="password"
+                minlength="5"
+                required
+            >
+            <button type="submit">
+                Iniciar Sesión
+            </button>
+        </form>
+        <div class="separator"></div>
+        <p class="register-text">
+            ¿No tienes una cuenta?
+            <a href="register.html">
+                Registrarse
+            </a>
+        </p>
+    </div>
+</div>
+
+<script src="assets/javascript/main.js"></script>
+</body>
 </html>
