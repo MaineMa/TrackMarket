@@ -1,100 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TrackMarket - Productos</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/products.css">
-</head>
-<body>
-
-<div class="page-wrapper">
-
-    <header class="top-bar">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/products.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="top-bar">
         <div class="logo-container">
-            <img src="../../assets/images/trackmarket_logo.png" alt="TrackMarket Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="logo-fallback" style="display:none">TrackMarket</div>
+          <img
+            src="../../assets/images/trackmarket_logo.png"
+            alt="TrackMarket Logo"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="logo-fallback" style="display: none">TrackMarket</div>
         </div>
         <nav class="top-nav">
-            <a href="restaurants.html" class="nav-item">Restaurantes</a>
-            <span class="nav-item active">Productos</span>
+          <a href="restaurants.html" class="nav-item">Restaurantes</a>
+          <span class="nav-item active">Productos</span>
+          <a href="cart.html" class="nav-item">Carrito</a>
+          <a href="profile.html" class="nav-item">Perfil</a>
         </nav>
-    </header>
+      </header>
 
-    <div class="rest-banner" id="restBanner" style="display:none">
-        <button class="back-btn" onclick="window.location.href='restaurants.html'">← Volver</button>
+      <div class="rest-banner" id="restBanner" style="display: none">
+        <button
+          class="back-btn"
+          onclick="window.location.href = 'restaurants.html'"
+        >
+          ← Volver
+        </button>
         <div class="banner-info">
-            <p class="banner-nombre" id="bannerNombre">—</p>
-            <div class="banner-meta">
-                <span id="bannerTipo" class="badge-tipo">—</span>
-                <span id="bannerDist" class="badge-dist">—</span>
-                <span id="bannerRating" class="badge-rating">—</span>
-            </div>
+          <p class="banner-nombre" id="bannerNombre">—</p>
+          <div class="banner-meta">
+            <span id="bannerTipo" class="badge-tipo">—</span>
+            <span id="bannerDist" class="badge-dist">—</span>
+            <span id="bannerRating" class="badge-rating">—</span>
+          </div>
         </div>
         <div class="banner-sub" id="bannerSub"></div>
-    </div>
+      </div>
 
-    <div class="selector-box" id="selectorBox" style="display:none">
+      <div class="selector-box" id="selectorBox" style="display: none">
         <label class="field-label">Seleccionar restaurante</label>
         <select id="restSelect" onchange="cambiarRest(this.value)">
-            <option value="">— elige un restaurante —</option>
+          <option value="">— elige un restaurante —</option>
         </select>
-    </div>
+      </div>
 
-    <div class="controls-bar" id="controlsBar" style="display:none">
+      <div class="controls-bar" id="controlsBar" style="display: none">
         <div class="search-wrap">
-            <input type="text" id="searchProd" placeholder="Buscar producto…" oninput="filtrarProd()">
+          <input
+            type="text"
+            id="searchProd"
+            placeholder="Buscar producto…"
+            oninput="filtrarProd()"
+          />
         </div>
         <div class="filters">
-            <select id="filtroDisp" onchange="filtrarProd()">
-                <option value="">Todos</option>
-                <option value="SI">Disponibles</option>
-                <option value="NO">No disponibles</option>
-            </select>
-            <select id="filtroOrden" onchange="filtrarProd()">
-                <option value="">Sin orden</option>
-                <option value="asc">Precio ↑</option>
-                <option value="desc">Precio ↓</option>
-            </select>
+          <select id="filtroDisp" onchange="filtrarProd()">
+            <option value="">Todos</option>
+            <option value="SI">Disponibles</option>
+            <option value="NO">No disponibles</option>
+          </select>
+          <select id="filtroOrden" onchange="filtrarProd()">
+            <option value="">Sin orden</option>
+            <option value="asc">Precio ↑</option>
+            <option value="desc">Precio ↓</option>
+          </select>
         </div>
         <div class="result-count" id="prodCount"></div>
-    </div>
+      </div>
 
-    <div id="loadState" class="load-state">
+      <div id="loadState" class="load-state">
         <p class="load-msg" id="loadMsg">Cargando datos…</p>
-    </div>
+      </div>
 
-    <div class="stats-row" id="statsRow" style="display:none">
+      <div class="stats-row" id="statsRow" style="display: none">
         <div class="stat-card">
-            <p class="stat-n" id="statTotal">0</p>
-            <p class="stat-lbl">Productos</p>
+          <p class="stat-n" id="statTotal">0</p>
+          <p class="stat-lbl">Productos</p>
         </div>
         <div class="stat-card">
-            <p class="stat-n" id="statMin">S/ 0</p>
-            <p class="stat-lbl">Precio mínimo</p>
+          <p class="stat-n" id="statMin">S/ 0</p>
+          <p class="stat-lbl">Precio mínimo</p>
         </div>
         <div class="stat-card">
-            <p class="stat-n" id="statMax">S/ 0</p>
-            <p class="stat-lbl">Precio máximo</p>
+          <p class="stat-n" id="statMax">S/ 0</p>
+          <p class="stat-lbl">Precio máximo</p>
         </div>
         <div class="stat-card">
-            <p class="stat-n" id="statProm">S/ 0</p>
-            <p class="stat-lbl">Precio promedio</p>
+          <p class="stat-n" id="statProm">S/ 0</p>
+          <p class="stat-lbl">Precio promedio</p>
         </div>
-    </div>
+      </div>
 
-    <div id="gridProd" class="prod-grid" style="display:none"></div>
+      <div id="gridProd" class="prod-grid" style="display: none"></div>
 
-    <div id="emptyState" class="empty-state" style="display:none">
+      <div id="emptyState" class="empty-state" style="display: none">
         <p class="empty-title">Sin productos</p>
-        <p class="empty-sub">Este restaurante no tiene productos registrados.</p>
+        <p class="empty-sub">
+          Este restaurante no tiene productos registrados.
+        </p>
+      </div>
     </div>
 
-</div>
-
-<script src="../../assets/javascript/products.js"></script>
-</body>
+    <script src="../../assets/javascript/products.js"></script>
+  </body>
 </html>
