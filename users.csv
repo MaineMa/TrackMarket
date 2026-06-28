@@ -1,0 +1,9 @@
+id_usuario,nombre,apellidos,email,password,telefono,distrito,calle,latitud,longitud
+1,dddd,ddd,134@gmail.com,123456,123555645,Chorrillos,Jirón Andrómeda,-12.170118,-77.009679
+2,Ariana,Ramirez,ariana@gmail.com,123455,999666234,Barranco,Avenida Miraflores,-12.143190,-77.019205
+3,Ariana,Ramirez Carrasco,ari129@gmail.com,12348,987934678,Miraflores,Calle Libertad,-12.122343,-77.033306
+4,A,R,13@gmail.com,12345,123456789,Barranco,Jirón Tumbes,-12.139701,-77.021182
+5,aa,aa,1g4@gmail.com,123456,123456789,Miraflores,Avenida Mariscal La Mar,-12.117925,-77.041133
+6,AS,as,adf@gmail.com,123456,123456789,Chorrillos,Avenida Alameda Los Horizontes,-12.197192,-76.999215
+7,aaa,radff,adfgh@gmail.com,12345,987654327,Chorrillos,Calle 18 de Diciembre,-12.190374,-77.005274
+8,asdd,sffgg,ahh@gmail.com,12345,967345698,Miraflores,Avenida José Pardo,-12.119114,-77.035829
