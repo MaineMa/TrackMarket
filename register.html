@@ -1,24 +1,249 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
-<head>
-
-<meta charset="UTF-8">
-
-<title>Registro</title>
-
-
-</head>
-
-
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackMarket - Registro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+        </head>
 <body>
 
+<div class="register-container">
 
-<h1></h1>
+    <!-- Barra Superior -->
 
+    <div class="top-bar">
 
+        <a href="main.html" class="back-button">
+
+            ← Volver
+
+        </a>
+
+        <span class="page-title">
+
+            Registro de Usuario
+        </span>
+    </div>
+
+    <form id="registerForm">
+        <div class="content">
+
+            <section class="card">
+
+                <h3>Datos Personales</h3>
+
+                <div class="two-columns">
+
+                    <div>
+
+                        <label>Nombre</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            required
+                        >
+
+                    </div>
+
+                    <div>
+
+                        <label>Apellidos</label>
+
+                        <input
+                            type="text"
+                            id="lastname"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+                <label>Correo Electrónico</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    required
+                >
+
+                <div class="two-columns">
+
+                    <div>
+
+                        <label>Contraseña</label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            minlength="5"
+                            required
+                        >
+
+                    </div>
+
+                    <div>
+
+                        <label>Confirmar Contraseña</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            minlength="5"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <label>Teléfono</label>
+
+                <input
+                    type="text"
+                    id="phone"
+                    maxlength="9"
+                    required
+                >
+
+            </section>
+
+            <!-- ========================== -->
+
+            <!-- UBICACIÓN -->
+
+            <!-- ========================== -->
+
+            <section class="card">
+
+                <h3>Ubicación</h3>
+
+                <label>Distrito</label>
+
+                <select id="district" required>
+
+                    <option value="">
+
+                        -- Seleccionar Distrito --
+
+                    </option>
+
+                    <option value="Chorrillos">
+
+                        Chorrillos
+
+                    </option>
+
+                    <option value="Barranco">
+
+                        Barranco
+
+                    </option>
+
+                    <option value="Miraflores">
+
+                        Miraflores
+
+                    </option>
+
+                </select>
+
+                <p class="helper-text">
+
+                    Selecciona un distrito y luego haz clic en uno de los
+                    marcadores disponibles del mapa.
+
+                </p>
+
+                <div id="map"></div>
+
+                <label>Ubicación Seleccionada</label>
+
+                <input
+                    type="text"
+                    id="street"
+                    readonly
+                    placeholder="Haz clic en un marcador..."
+                >
+                                <div class="coordinates">
+
+                    <div>
+
+                        <label>Latitud</label>
+
+                        <input
+                            type="text"
+                            id="latitude"
+                            readonly
+                            placeholder="Latitud"
+                        >
+
+                    </div>
+
+                    <div>
+
+                        <label>Longitud</label>
+
+                        <input
+                            type="text"
+                            id="longitude"
+                            readonly
+                            placeholder="Longitud"
+                        >
+
+                    </div>
+
+                </div>
+
+                <p class="map-note">
+
+                    Solo puedes seleccionar una ubicación que pertenezca
+                    al dataset de TrackMarket.
+
+                </p>
+
+            </section>
+
+        </div>
+
+        <!-- BOTONES -->
+
+        <div class="buttons">
+
+            <button
+                type="button"
+                class="cancel-btn"
+                onclick="window.location.href='main.html'"
+            >
+
+                Cancelar
+
+            </button>
+
+            <button
+                type="submit"
+                class="register-btn"
+            >
+
+                Crear Cuenta
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<script src="assets/javascript/register.js"></script>
 </body>
-
-
 </html>

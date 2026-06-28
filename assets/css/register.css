@@ -1,0 +1,240 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+}
+
+body{
+    background:#F5F5EF;
+    padding:18px;
+}
+
+.register-container{
+    max-width:1290px;
+    margin:auto;
+}
+
+/* ── Top bar ─────────────────────── */
+.top-bar{
+    height:50px;
+    background:#FFFEF8;
+    border:1px solid #d4d4d4;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    padding:0 18px;
+    margin-bottom:18px;
+}
+
+.back-button{
+    color:#6d6d6d;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    transition:.2s;
+}
+
+.back-button:hover{ color:#E6A64B; }
+
+.page-title{
+    margin-left:18px;
+    font-size:18px;
+    font-weight:600;
+    color:#333;
+}
+
+/* ── Grid de secciones ───────────── */
+.content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.card{
+    background:#FFFEF8;
+    border:1px solid #d4d4d4;
+    border-radius:16px;
+    padding:22px;
+}
+
+.card h3{
+    font-size:15px;
+    color:#444;
+    font-weight:600;
+    margin-bottom:18px;
+    padding-bottom:12px;
+    border-bottom:1px solid #e8e8e0;
+}
+
+.two-columns{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+/* ── Campos ──────────────────────── */
+label{
+    display:block;
+    margin-top:14px;
+    margin-bottom:5px;
+    font-size:12px;
+    font-weight:500;
+    color:#555;
+}
+
+input,
+select{
+    width:100%;
+    height:40px;
+    border:1px solid #d0d0d0;
+    border-radius:8px;
+    padding:0 12px;
+    font-size:13px;
+    outline:none;
+    transition:.2s;
+    background:#fff;
+    color:#333;
+}
+
+input:focus,
+select:focus{
+    border-color:#E6A64B;
+    box-shadow:0 0 0 3px rgba(230,166,75,.12);
+}
+
+input[readonly]{
+    background:#f5f5f2;
+    color:#666;
+    cursor:not-allowed;
+}
+
+/* ── Mapa ────────────────────────── */
+.helper-text{
+    margin-top:12px;
+    margin-bottom:10px;
+    color:#888;
+    font-size:12px;
+    line-height:1.6;
+}
+
+#map{
+    width:100%;
+    height:280px;
+    border:1px solid #d4d4d4;
+    border-radius:10px;
+    margin-top:4px;
+    transition:border-color .2s;
+}
+
+#map:hover{
+    border-color:#E6A64B;
+}
+
+.leaflet-container{ border-radius:10px; }
+
+.leaflet-popup-content{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+}
+
+.coordinates{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:10px;
+}
+
+.map-note{
+    margin-top:12px;
+    font-size:12px;
+    color:#888;
+    line-height:1.6;
+    min-height:18px;
+    transition:color .2s;
+}
+
+/* Campo con ubicación seleccionada */
+.selected-location{
+    background:#FFF6E7 !important;
+    border-color:#E6A64B !important;
+    color:#7a4f00 !important;
+}
+
+/* ── Botones ──────────────────────── */
+.buttons{
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    margin-top:20px;
+}
+
+.cancel-btn{
+    width:140px;
+    height:42px;
+    border:1px solid #d0d0d0;
+    border-radius:8px;
+    background:#fff;
+    color:#555;
+    cursor:pointer;
+    font-weight:600;
+    font-size:13px;
+    transition:.2s;
+}
+
+.cancel-btn:hover{
+    background:#f0f0f0;
+    border-color:#bbb;
+}
+
+.register-btn{
+    width:170px;
+    height:42px;
+    border:none;
+    border-radius:8px;
+    background:#E6A64B;
+    color:#fff;
+    cursor:pointer;
+    font-weight:600;
+    font-size:13px;
+    transition:.2s;
+}
+
+.register-btn:hover{ opacity:.88; }
+
+/* ── Toast de éxito ──────────────── */
+@keyframes fadeInUp{
+    from{ opacity:0; transform:translateY(12px); }
+    to  { opacity:1; transform:translateY(0); }
+}
+
+/* ── Responsive ──────────────────── */
+@media(max-width:1100px){
+    .content{ grid-template-columns:1fr; }
+    #map{ height:340px; }
+}
+
+@media(max-width:700px){
+    .two-columns{ grid-template-columns:1fr; }
+    .coordinates{ grid-template-columns:1fr; }
+    .buttons{ flex-direction:column; }
+    .cancel-btn,.register-btn{ width:100%; }
+    .page-title{ font-size:16px; }
+}
+
+@media(max-width:500px){
+    body{ padding:10px; }
+    .card{ padding:16px; }
+    .top-bar{ padding:0 12px; }
+}
+
+/* ── Animaciones popup ───────────── */
+@keyframes fadeIn {
+    from { opacity:0; }
+    to   { opacity:1; }
+}
+
+@keyframes scaleIn {
+    from { opacity:0; transform:scale(.9); }
+    to   { opacity:1; transform:scale(1); }
+}
