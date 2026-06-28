@@ -1,4 +1,4 @@
-const CSV_DATASET = "TB1_1ACC0184_2026-10_Dataset.csv";
+const CSV_DATASET = "../csvs/TB1_1ACC0184_2026-10_Dataset.csv";
 
 // ── Estado global ──────────────────────────────
 let mapa = null;
@@ -386,7 +386,7 @@ function mostrarPopupExito(datos) {
   document.body.appendChild(overlay);
 
   document.getElementById("btn-continuar").addEventListener("click", () => {
-    window.location.href = "main.html";
+    window.location.href = "../../main.html";
   });
 
   // Cerrar con click fuera del popup
