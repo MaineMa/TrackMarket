@@ -2,11 +2,13 @@
 import random
 import pandas as pd
 import osmnx as ox
+
 from shapely.ops import unary_union
 from shapely.geometry import Point
 
-ARCHIVO_SALIDA    = "restaurants.csv"
-NUM_RESTAURANTES  = 30
+ARCHIVO_SALIDA   = "restaurants.csv"
+NUM_RESTAURANTES = 30
+
 LUGARES = [
     "Chorrillos, Lima, Peru",
     "Barranco, Lima, Peru",
@@ -29,80 +31,95 @@ CALLES = [
     "José Pardo", "Reducto", "Benavides", "Armendáriz", "Los Laureles",
 ]
 
-def punto_aleatorio_en_poligono(poligono, intentos: int = 200) -> Point:
-    minx, miny, maxx, maxy = poligono.bounds
-    for _ in range(intentos):
-        p = Point(
-            random.uniform(minx, maxx),
-            random.uniform(miny, maxy),
-        )
-        if poligono.contains(p):
-            return p
-    return poligono.centroid
-
-
-def obtener_distrito(punto: Point, poligonos: list, nombres: list) -> str:
+def obtener_distrito(lat, lon, poligonos, nombres):
+    punto = Point(lon, lat)
     for poligono, nombre in zip(poligonos, nombres):
         if poligono.contains(punto):
             return nombre
     return "Otro"
 
+
 def main():
+
     if os.path.exists(ARCHIVO_SALIDA):
         print(f"[OK] '{ARCHIVO_SALIDA}' ya existe — no se sobreescribe.")
         return
 
-    print("Descargando polígonos de los distritos…")
+    print("Descargando polígonos…")
     poligonos = [
         ox.geocode_to_gdf(lugar).geometry.values[0]
         for lugar in LUGARES
     ]
+
     nombres_distritos = [l.split(",")[0] for l in LUGARES]
     area_total = unary_union(poligonos)
 
-    print(f"Área total: {area_total.area:.6f} grados²")
-    print(f"Generando {NUM_RESTAURANTES} restaurantes…")
+    print("Descargando grafo vial…")
+    G = ox.graph_from_polygon(area_total, network_type="drive")
+
+    print(f"Nodos: {G.number_of_nodes()} | Aristas: {G.number_of_edges()}")
+
+    nodos_por_distrito = {
+        nombre: []
+        for nombre in nombres_distritos
+    }
+
+    for nodo, data in G.nodes(data=True):
+
+        punto = Point(data["x"], data["y"])
+
+        for lugar, poligono in zip(LUGARES, poligonos):
+
+            if poligono.contains(punto):
+
+                nombre = lugar.split(",")[0]
+                nodos_por_distrito[nombre].append(nodo)
+                break
 
     filas = []
+
     for i in range(1, NUM_RESTAURANTES + 1):
-        idx_dist = random.randint(0, len(poligonos) - 1)
-        poligono = poligonos[idx_dist]
-        distrito = nombres_distritos[idx_dist]
 
-        punto = punto_aleatorio_en_poligono(poligono)
-        lat   = round(punto.y, 6)
-        lon   = round(punto.x, 6)
+        distrito = random.choice(nombres_distritos)
 
-        tipo    = random.choice(TIPOS)
-        nombre  = random.choice(NOMBRES_BASE) + " " + tipo.split()[0]
-        horario = f"{random.randint(7, 10)}:00 - {random.randint(20, 23)}:00"
+        nodo = random.choice(nodos_por_distrito[distrito])
+
+        lat = round(G.nodes[nodo]["y"], 6)
+        lon = round(G.nodes[nodo]["x"], 6)
+
+        tipo   = random.choice(TIPOS)
+        nombre = random.choice(NOMBRES_BASE) + " " + tipo.split()[0]
+
+        vecinos = list(G.edges(nodo, data=True))
+        if vecinos:
+            calle = vecinos[0][2].get("name", "Sin nombre")
+        else:
+            calle = "Sin nombre"
+
+        direccion = f"{calle} {random.randint(100,999)}, {distrito}"
+
+        horario = f"{random.randint(7,10)}:00 - {random.randint(20,23)}:00"
         tel     = f"9{random.randint(10000000, 99999999)}"
         rating  = round(random.uniform(3.2, 5.0), 1)
-        calle   = random.choice(CALLES)
-        numero  = random.randint(100, 999)
-        dir_    = f"Av. {calle} {numero}, {distrito}"
 
         filas.append({
             "id_restaurante": i,
-            "nombre"        : nombre,
-            "tipo"          : tipo,
-            "distrito"      : distrito,
-            "latitud"       : lat,
-            "longitud"      : lon,
-            "direccion"     : dir_,
-            "horario"       : horario,
-            "telefono"      : tel,
-            "rating"        : rating,
+            "nombre": nombre,
+            "tipo": tipo,
+            "distrito": distrito,
+            "latitud": lat,
+            "longitud": lon,
+            "direccion": direccion,
+            "horario": horario,
+            "telefono": tel,
+            "rating": rating,
         })
 
     df = pd.DataFrame(filas)
     df.to_csv(ARCHIVO_SALIDA, index=False, encoding="utf-8")
 
-    print(f"\nResumen:")
-    print(f"  Restaurantes generados : {len(df)}")
-    print(f"  Distritos cubiertos    : {df['distrito'].nunique()}")
-    print(df["distrito"].value_counts().to_string())
-    print(f"\n[OK] Archivo creado: '{ARCHIVO_SALIDA}'")
+    print("\n[OK] Dataset creado")
+    print(df["distrito"].value_counts())
 
 
 if __name__ == "__main__":
