@@ -2,8 +2,9 @@
 import random
 import pandas as pd
 
-ARCHIVO_RESTAURANTES = "restaurants.csv"
-ARCHIVO_SALIDA       = "products.csv"
+_DIR = os.path.dirname(os.path.abspath(__file__))
+ARCHIVO_RESTAURANTES = os.path.join(_DIR, "..", "csvs", "restaurants.csv")
+ARCHIVO_SALIDA       = os.path.join(_DIR, "..", "csvs", "products.csv")
 
 MIN_PROD  = 3
 MAX_PROD  = 8

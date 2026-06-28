@@ -6,7 +6,8 @@ import osmnx as ox
 from shapely.ops import unary_union
 from shapely.geometry import Point
 
-ARCHIVO_SALIDA   = "restaurants.csv"
+_DIR = os.path.dirname(os.path.abspath(__file__))
+ARCHIVO_SALIDA   = os.path.join(_DIR, "..", "csvs", "restaurants.csv")
 NUM_RESTAURANTES = 30
 
 LUGARES = [
