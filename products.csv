@@ -1,0 +1,189 @@
+id_producto,id_restaurante,nombre_producto,categoria,precio_soles,descripcion,disponible
+1,1,Bruschetta,Pizzería,27.78,Bruschetta preparado al estilo pizzería,SI
+2,1,Pizza mediana,Pizzería,50.05,Pizza mediana preparado al estilo pizzería,SI
+3,1,Pizza personal,Pizzería,53.03,Pizza personal preparado al estilo pizzería,NO
+4,1,Pizza familiar,Pizzería,52.83,Pizza familiar preparado al estilo pizzería,SI
+5,2,Anticucho,Pollería,25.57,Anticucho preparado al estilo pollería,SI
+6,2,Pollo a la brasa 1/4,Pollería,13.76,Pollo a la brasa 1/4 preparado al estilo pollería,NO
+7,2,Chorizo parrillero,Pollería,28.58,Chorizo parrillero preparado al estilo pollería,SI
+8,2,Chicharrón de pollo,Pollería,38.02,Chicharrón de pollo preparado al estilo pollería,SI
+9,2,Pollo a la brasa entero,Pollería,24.64,Pollo a la brasa entero preparado al estilo pollería,SI
+10,2,Papas fritas,Pollería,22.35,Papas fritas preparado al estilo pollería,SI
+11,2,Ensalada,Pollería,23.0,Ensalada preparado al estilo pollería,NO
+12,2,Pollo a la brasa 1/2,Pollería,15.45,Pollo a la brasa 1/2 preparado al estilo pollería,NO
+13,3,Tiradito,Cevichería,26.94,Tiradito preparado al estilo cevichería,SI
+14,3,Sudado de pescado,Cevichería,41.09,Sudado de pescado preparado al estilo cevichería,SI
+15,3,Ceviche clásico,Cevichería,42.1,Ceviche clásico preparado al estilo cevichería,SI
+16,3,Pulpo al olivo,Cevichería,30.77,Pulpo al olivo preparado al estilo cevichería,SI
+17,3,Leche de tigre,Cevichería,31.06,Leche de tigre preparado al estilo cevichería,SI
+18,3,Arroz con mariscos,Cevichería,34.63,Arroz con mariscos preparado al estilo cevichería,SI
+19,3,Choritos a la chalaca,Cevichería,35.19,Choritos a la chalaca preparado al estilo cevichería,NO
+20,4,Lomo fino,Parrilla,54.75,Lomo fino preparado al estilo parrilla,SI
+21,4,Anticucho,Parrilla,18.98,Anticucho preparado al estilo parrilla,SI
+22,4,Parrilla mixta,Parrilla,52.13,Parrilla mixta preparado al estilo parrilla,SI
+23,4,Pollo a la parrilla,Parrilla,23.37,Pollo a la parrilla preparado al estilo parrilla,SI
+24,4,Salchicha parrillera,Parrilla,49.88,Salchicha parrillera preparado al estilo parrilla,SI
+25,5,Arroz con leche,Restaurante Criollo,16.26,Arroz con leche preparado al estilo restaurante criollo,SI
+26,5,Causa limeña,Restaurante Criollo,21.2,Causa limeña preparado al estilo restaurante criollo,SI
+27,5,Lomo saltado,Restaurante Criollo,28.43,Lomo saltado preparado al estilo restaurante criollo,SI
+28,5,Ají de gallina,Restaurante Criollo,17.12,Ají de gallina preparado al estilo restaurante criollo,NO
+29,5,Escabeche de pollo,Restaurante Criollo,29.11,Escabeche de pollo preparado al estilo restaurante criollo,SI
+30,5,Carapulcra,Restaurante Criollo,15.31,Carapulcra preparado al estilo restaurante criollo,SI
+31,5,Tacu tacu,Restaurante Criollo,27.46,Tacu tacu preparado al estilo restaurante criollo,NO
+32,5,Seco de pollo,Restaurante Criollo,13.71,Seco de pollo preparado al estilo restaurante criollo,SI
+33,6,Triple mixto,Sanguchería,9.0,Triple mixto preparado al estilo sanguchería,SI
+34,6,Pan con peperoni,Sanguchería,15.27,Pan con peperoni preparado al estilo sanguchería,SI
+35,6,Pan con jamón del país,Sanguchería,13.68,Pan con jamón del país preparado al estilo sanguchería,SI
+36,6,Sánguche de pollo,Sanguchería,10.33,Sánguche de pollo preparado al estilo sanguchería,SI
+37,6,Sánguche de chicharrón,Sanguchería,26.97,Sánguche de chicharrón preparado al estilo sanguchería,SI
+38,6,Club sándwich,Sanguchería,25.98,Club sándwich preparado al estilo sanguchería,SI
+39,6,Pan con bistec,Sanguchería,11.53,Pan con bistec preparado al estilo sanguchería,SI
+40,7,Pollo a la brasa entero,Pollería,16.33,Pollo a la brasa entero preparado al estilo pollería,SI
+41,7,Ensalada,Pollería,14.27,Ensalada preparado al estilo pollería,SI
+42,7,Chorizo parrillero,Pollería,28.63,Chorizo parrillero preparado al estilo pollería,SI
+43,7,Papas fritas,Pollería,18.05,Papas fritas preparado al estilo pollería,SI
+44,8,Pulpo al olivo,Cevichería,29.86,Pulpo al olivo preparado al estilo cevichería,SI
+45,8,Arroz con mariscos,Cevichería,41.28,Arroz con mariscos preparado al estilo cevichería,SI
+46,8,Choritos a la chalaca,Cevichería,22.46,Choritos a la chalaca preparado al estilo cevichería,SI
+47,8,Leche de tigre,Cevichería,29.9,Leche de tigre preparado al estilo cevichería,SI
+48,8,Ceviche mixto,Cevichería,29.06,Ceviche mixto preparado al estilo cevichería,SI
+49,8,Sudado de pescado,Cevichería,32.05,Sudado de pescado preparado al estilo cevichería,NO
+50,8,Tiradito,Cevichería,42.11,Tiradito preparado al estilo cevichería,SI
+51,9,Ceviche mixto,Cevichería,46.43,Ceviche mixto preparado al estilo cevichería,SI
+52,9,Arroz con mariscos,Cevichería,22.95,Arroz con mariscos preparado al estilo cevichería,SI
+53,9,Ceviche clásico,Cevichería,48.1,Ceviche clásico preparado al estilo cevichería,NO
+54,9,Leche de tigre,Cevichería,49.42,Leche de tigre preparado al estilo cevichería,SI
+55,9,Pulpo al olivo,Cevichería,45.4,Pulpo al olivo preparado al estilo cevichería,SI
+56,9,Tiradito,Cevichería,19.38,Tiradito preparado al estilo cevichería,SI
+57,9,Sudado de pescado,Cevichería,20.72,Sudado de pescado preparado al estilo cevichería,SI
+58,9,Choritos a la chalaca,Cevichería,46.61,Choritos a la chalaca preparado al estilo cevichería,NO
+59,10,Pizza familiar,Pizzería,26.01,Pizza familiar preparado al estilo pizzería,SI
+60,10,Pan al ajo,Pizzería,46.59,Pan al ajo preparado al estilo pizzería,NO
+61,10,Pizza personal,Pizzería,49.32,Pizza personal preparado al estilo pizzería,SI
+62,10,Bruschetta,Pizzería,44.42,Bruschetta preparado al estilo pizzería,SI
+63,11,Arroz chaufa,Chifa,27.53,Arroz chaufa preparado al estilo chifa,SI
+64,11,Lomo saltado,Chifa,15.45,Lomo saltado preparado al estilo chifa,SI
+65,11,Kam lu wantán,Chifa,18.67,Kam lu wantán preparado al estilo chifa,SI
+66,11,Tallarín saltado,Chifa,14.2,Tallarín saltado preparado al estilo chifa,SI
+67,11,Aeropuerto,Chifa,16.62,Aeropuerto preparado al estilo chifa,SI
+68,11,Arroz frito especial,Chifa,20.48,Arroz frito especial preparado al estilo chifa,SI
+69,12,Pollo a la parrilla,Parrilla,55.0,Pollo a la parrilla preparado al estilo parrilla,SI
+70,12,Costillas BBQ,Parrilla,47.94,Costillas BBQ preparado al estilo parrilla,SI
+71,12,Chorizo artesanal,Parrilla,55.0,Chorizo artesanal preparado al estilo parrilla,SI
+72,12,Lomo fino,Parrilla,50.68,Lomo fino preparado al estilo parrilla,SI
+73,12,Anticucho,Parrilla,24.66,Anticucho preparado al estilo parrilla,SI
+74,12,Mollejas a la parrilla,Parrilla,21.18,Mollejas a la parrilla preparado al estilo parrilla,SI
+75,12,Salchicha parrillera,Parrilla,19.17,Salchicha parrillera preparado al estilo parrilla,SI
+76,13,Lomo fino,Parrilla,52.02,Lomo fino preparado al estilo parrilla,SI
+77,13,Costillas BBQ,Parrilla,25.71,Costillas BBQ preparado al estilo parrilla,NO
+78,13,Anticucho,Parrilla,45.13,Anticucho preparado al estilo parrilla,SI
+79,13,Parrilla mixta,Parrilla,34.57,Parrilla mixta preparado al estilo parrilla,SI
+80,13,Salchicha parrillera,Parrilla,52.8,Salchicha parrillera preparado al estilo parrilla,NO
+81,13,Pollo a la parrilla,Parrilla,55.0,Pollo a la parrilla preparado al estilo parrilla,SI
+82,13,Chorizo artesanal,Parrilla,55.0,Chorizo artesanal preparado al estilo parrilla,SI
+83,13,Mollejas a la parrilla,Parrilla,29.13,Mollejas a la parrilla preparado al estilo parrilla,NO
+84,14,Parrilla mixta,Parrilla,54.38,Parrilla mixta preparado al estilo parrilla,NO
+85,14,Costillas BBQ,Parrilla,26.67,Costillas BBQ preparado al estilo parrilla,SI
+86,14,Lomo fino,Parrilla,42.72,Lomo fino preparado al estilo parrilla,NO
+87,14,Salchicha parrillera,Parrilla,55.0,Salchicha parrillera preparado al estilo parrilla,SI
+88,14,Chorizo artesanal,Parrilla,24.36,Chorizo artesanal preparado al estilo parrilla,SI
+89,14,Pollo a la parrilla,Parrilla,55.0,Pollo a la parrilla preparado al estilo parrilla,SI
+90,15,Hotdog,Hamburguesería,30.91,Hotdog preparado al estilo hamburguesería,SI
+91,15,Papas fritas,Hamburguesería,25.56,Papas fritas preparado al estilo hamburguesería,SI
+92,15,Combo burger,Hamburguesería,32.78,Combo burger preparado al estilo hamburguesería,SI
+93,15,Hamburguesa clásica,Hamburguesería,29.9,Hamburguesa clásica preparado al estilo hamburguesería,SI
+94,16,Arroz chaufa,Chifa,31.21,Arroz chaufa preparado al estilo chifa,SI
+95,16,Tallarín saltado,Chifa,32.15,Tallarín saltado preparado al estilo chifa,SI
+96,16,Wantán frito,Chifa,21.59,Wantán frito preparado al estilo chifa,SI
+97,16,Sopa wantán,Chifa,33.51,Sopa wantán preparado al estilo chifa,SI
+98,16,Lomo saltado,Chifa,22.4,Lomo saltado preparado al estilo chifa,SI
+99,16,Aeropuerto,Chifa,13.86,Aeropuerto preparado al estilo chifa,NO
+100,16,Kam lu wantán,Chifa,21.52,Kam lu wantán preparado al estilo chifa,SI
+101,17,Wantán frito,Chifa,16.64,Wantán frito preparado al estilo chifa,SI
+102,17,Lomo saltado,Chifa,31.45,Lomo saltado preparado al estilo chifa,SI
+103,17,Tallarín saltado,Chifa,31.17,Tallarín saltado preparado al estilo chifa,SI
+104,17,Arroz chaufa,Chifa,12.46,Arroz chaufa preparado al estilo chifa,NO
+105,17,Sopa wantán,Chifa,25.37,Sopa wantán preparado al estilo chifa,SI
+106,17,Arroz frito especial,Chifa,22.25,Arroz frito especial preparado al estilo chifa,SI
+107,17,Aeropuerto,Chifa,34.14,Aeropuerto preparado al estilo chifa,SI
+108,18,Gyoza,Sushi,20.24,Gyoza preparado al estilo sushi,SI
+109,18,Sashimi mixto,Sushi,38.79,Sashimi mixto preparado al estilo sushi,SI
+110,18,Roll tempura,Sushi,47.71,Roll tempura preparado al estilo sushi,SI
+111,18,Edamame,Sushi,48.28,Edamame preparado al estilo sushi,SI
+112,18,Nigiri salmón,Sushi,49.35,Nigiri salmón preparado al estilo sushi,SI
+113,19,Arroz con mariscos,Cevichería,42.54,Arroz con mariscos preparado al estilo cevichería,SI
+114,19,Leche de tigre,Cevichería,21.18,Leche de tigre preparado al estilo cevichería,NO
+115,19,Ceviche clásico,Cevichería,39.93,Ceviche clásico preparado al estilo cevichería,SI
+116,19,Ceviche mixto,Cevichería,27.63,Ceviche mixto preparado al estilo cevichería,SI
+117,19,Choritos a la chalaca,Cevichería,35.51,Choritos a la chalaca preparado al estilo cevichería,SI
+118,19,Sudado de pescado,Cevichería,41.47,Sudado de pescado preparado al estilo cevichería,SI
+119,20,Choritos a la chalaca,Cevichería,32.64,Choritos a la chalaca preparado al estilo cevichería,SI
+120,20,Ceviche mixto,Cevichería,46.82,Ceviche mixto preparado al estilo cevichería,SI
+121,20,Pulpo al olivo,Cevichería,23.82,Pulpo al olivo preparado al estilo cevichería,SI
+122,20,Leche de tigre,Cevichería,41.88,Leche de tigre preparado al estilo cevichería,SI
+123,20,Tiradito,Cevichería,41.95,Tiradito preparado al estilo cevichería,SI
+124,20,Sudado de pescado,Cevichería,41.06,Sudado de pescado preparado al estilo cevichería,SI
+125,20,Ceviche clásico,Cevichería,22.06,Ceviche clásico preparado al estilo cevichería,NO
+126,20,Arroz con mariscos,Cevichería,23.79,Arroz con mariscos preparado al estilo cevichería,NO
+127,21,Combo burger,Hamburguesería,15.54,Combo burger preparado al estilo hamburguesería,SI
+128,21,Hamburguesa clásica,Hamburguesería,18.79,Hamburguesa clásica preparado al estilo hamburguesería,SI
+129,21,Nuggets,Hamburguesería,24.68,Nuggets preparado al estilo hamburguesería,SI
+130,21,Onion rings,Hamburguesería,12.75,Onion rings preparado al estilo hamburguesería,SI
+131,21,Papas fritas,Hamburguesería,37.76,Papas fritas preparado al estilo hamburguesería,SI
+132,21,Alitas BBQ,Hamburguesería,12.69,Alitas BBQ preparado al estilo hamburguesería,SI
+133,21,Hamburguesa doble,Hamburguesería,12.26,Hamburguesa doble preparado al estilo hamburguesería,SI
+134,22,Pollo a la parrilla,Parrilla,28.74,Pollo a la parrilla preparado al estilo parrilla,NO
+135,22,Mollejas a la parrilla,Parrilla,55.0,Mollejas a la parrilla preparado al estilo parrilla,SI
+136,22,Anticucho,Parrilla,55.0,Anticucho preparado al estilo parrilla,SI
+137,22,Costillas BBQ,Parrilla,23.18,Costillas BBQ preparado al estilo parrilla,SI
+138,22,Parrilla mixta,Parrilla,35.61,Parrilla mixta preparado al estilo parrilla,SI
+139,23,Lasagna,Pizzería,40.93,Lasagna preparado al estilo pizzería,SI
+140,23,Pan al ajo,Pizzería,34.6,Pan al ajo preparado al estilo pizzería,SI
+141,23,Pizza familiar,Pizzería,42.1,Pizza familiar preparado al estilo pizzería,SI
+142,23,Pizza personal,Pizzería,16.43,Pizza personal preparado al estilo pizzería,SI
+143,23,Calzone,Pizzería,20.76,Calzone preparado al estilo pizzería,SI
+144,23,Bruschetta,Pizzería,25.47,Bruschetta preparado al estilo pizzería,SI
+145,23,Pizza mediana,Pizzería,17.22,Pizza mediana preparado al estilo pizzería,SI
+146,23,Pasta bolognesa,Pizzería,41.17,Pasta bolognesa preparado al estilo pizzería,SI
+147,24,Arroz con leche,Restaurante Criollo,15.95,Arroz con leche preparado al estilo restaurante criollo,SI
+148,24,Seco de pollo,Restaurante Criollo,19.32,Seco de pollo preparado al estilo restaurante criollo,SI
+149,24,Causa limeña,Restaurante Criollo,28.44,Causa limeña preparado al estilo restaurante criollo,SI
+150,24,Carapulcra,Restaurante Criollo,36.09,Carapulcra preparado al estilo restaurante criollo,SI
+151,24,Tacu tacu,Restaurante Criollo,31.28,Tacu tacu preparado al estilo restaurante criollo,SI
+152,24,Ají de gallina,Restaurante Criollo,17.22,Ají de gallina preparado al estilo restaurante criollo,SI
+153,24,Escabeche de pollo,Restaurante Criollo,35.56,Escabeche de pollo preparado al estilo restaurante criollo,NO
+154,25,Aeropuerto,Chifa,16.14,Aeropuerto preparado al estilo chifa,SI
+155,25,Sopa wantán,Chifa,18.54,Sopa wantán preparado al estilo chifa,SI
+156,25,Arroz chaufa,Chifa,20.52,Arroz chaufa preparado al estilo chifa,SI
+157,25,Kam lu wantán,Chifa,22.37,Kam lu wantán preparado al estilo chifa,SI
+158,25,Arroz frito especial,Chifa,26.4,Arroz frito especial preparado al estilo chifa,SI
+159,25,Wantán frito,Chifa,24.18,Wantán frito preparado al estilo chifa,SI
+160,25,Tallarín saltado,Chifa,14.28,Tallarín saltado preparado al estilo chifa,SI
+161,25,Lomo saltado,Chifa,25.37,Lomo saltado preparado al estilo chifa,SI
+162,26,Mollejas a la parrilla,Parrilla,37.45,Mollejas a la parrilla preparado al estilo parrilla,SI
+163,26,Chorizo artesanal,Parrilla,55.0,Chorizo artesanal preparado al estilo parrilla,NO
+164,26,Costillas BBQ,Parrilla,21.58,Costillas BBQ preparado al estilo parrilla,SI
+165,26,Anticucho,Parrilla,55.0,Anticucho preparado al estilo parrilla,SI
+166,26,Pollo a la parrilla,Parrilla,55.0,Pollo a la parrilla preparado al estilo parrilla,SI
+167,26,Salchicha parrillera,Parrilla,55.0,Salchicha parrillera preparado al estilo parrilla,SI
+168,26,Lomo fino,Parrilla,28.55,Lomo fino preparado al estilo parrilla,SI
+169,27,Club sándwich,Sanguchería,18.7,Club sándwich preparado al estilo sanguchería,SI
+170,27,Pan con bistec,Sanguchería,14.68,Pan con bistec preparado al estilo sanguchería,SI
+171,27,Pan con jamón del país,Sanguchería,18.74,Pan con jamón del país preparado al estilo sanguchería,SI
+172,27,Sánguche de chicharrón,Sanguchería,17.36,Sánguche de chicharrón preparado al estilo sanguchería,SI
+173,28,Lomo saltado,Chifa,32.19,Lomo saltado preparado al estilo chifa,SI
+174,28,Kam lu wantán,Chifa,16.48,Kam lu wantán preparado al estilo chifa,SI
+175,28,Wantán frito,Chifa,23.8,Wantán frito preparado al estilo chifa,SI
+176,28,Aeropuerto,Chifa,20.85,Aeropuerto preparado al estilo chifa,NO
+177,28,Sopa wantán,Chifa,15.64,Sopa wantán preparado al estilo chifa,SI
+178,28,Arroz chaufa,Chifa,31.85,Arroz chaufa preparado al estilo chifa,NO
+179,29,Salchicha parrillera,Parrilla,30.87,Salchicha parrillera preparado al estilo parrilla,SI
+180,29,Pollo a la parrilla,Parrilla,31.26,Pollo a la parrilla preparado al estilo parrilla,SI
+181,29,Costillas BBQ,Parrilla,55.0,Costillas BBQ preparado al estilo parrilla,SI
+182,29,Mollejas a la parrilla,Parrilla,55.0,Mollejas a la parrilla preparado al estilo parrilla,SI
+183,29,Chorizo artesanal,Parrilla,54.24,Chorizo artesanal preparado al estilo parrilla,SI
+184,30,Hamburguesa clásica,Hamburguesería,8.39,Hamburguesa clásica preparado al estilo hamburguesería,SI
+185,30,Nuggets,Hamburguesería,26.88,Nuggets preparado al estilo hamburguesería,SI
+186,30,Alitas BBQ,Hamburguesería,38.44,Alitas BBQ preparado al estilo hamburguesería,SI
+187,30,Papas fritas,Hamburguesería,14.66,Papas fritas preparado al estilo hamburguesería,SI
+188,30,Hamburguesa doble,Hamburguesería,15.94,Hamburguesa doble preparado al estilo hamburguesería,SI

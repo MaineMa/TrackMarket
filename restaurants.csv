@@ -1,0 +1,31 @@
+id_restaurante,nombre,tipo,distrito,latitud,longitud,direccion,horario,telefono,rating
+1,La Plaza Pizzería,Pizzería,Chorrillos,-12.207097,-77.010291,"Sin nombre 419, Chorrillos",8:00 - 20:00,997485694,3.3
+2,La Bahía Pollería,Pollería,Chorrillos,-12.207124,-77.017149,"Calle Rodas 192, Chorrillos",10:00 - 21:00,919788564,3.9
+3,La Marina Cevichería,Cevichería,Barranco,-12.144817,-77.014459,"Jirón Venegas 715, Barranco",7:00 - 22:00,931098392,3.4
+4,El Rincón Parrilla,Parrilla,Miraflores,-12.128709,-77.009647,"Calle Manuel Augusto Olaechea 635, Miraflores",9:00 - 20:00,923623082,4.4
+5,La Cocina Restaurante,Restaurante Criollo,Miraflores,-12.127216,-77.024964,"Pasaje San Martín 353, Miraflores",10:00 - 23:00,963418711,3.5
+6,El Rincón Sanguchería,Sanguchería,Barranco,-12.136289,-77.017403,"Sin nombre 941, Barranco",10:00 - 23:00,937792311,4.4
+7,Don Juan Pollería,Pollería,Miraflores,-12.121238,-77.0337,"Calle José Gálvez 445, Miraflores",8:00 - 21:00,950939686,4.9
+8,Mi Tierra Cevichería,Cevichería,Chorrillos,-12.167893,-77.019098,"Avenida Emilio Sandoval 942, Chorrillos",10:00 - 22:00,919976625,4.7
+9,Mi Tierra Cevichería,Cevichería,Chorrillos,-12.203509,-77.017464,"M 409, Chorrillos",9:00 - 23:00,971486774,5.0
+10,La Esquina Pizzería,Pizzería,Chorrillos,-12.201125,-77.014029,"Avenida Alameda Sur 528, Chorrillos",7:00 - 20:00,946200627,4.4
+11,Don Pepe Chifa,Chifa,Chorrillos,-12.186594,-77.01906,"Avenida San Pedro 105, Chorrillos",7:00 - 21:00,995078530,3.4
+12,La Brasa Parrilla,Parrilla,Miraflores,-12.111187,-77.046461,"Avenida Federico Villarreal 577, Miraflores",7:00 - 20:00,956983228,4.8
+13,El Punto Parrilla,Parrilla,Miraflores,-12.126376,-77.034929,"Malecón Balta 608, Miraflores",8:00 - 23:00,910516545,4.8
+14,Don Pepe Parrilla,Parrilla,Miraflores,-12.123771,-77.008514,"Calle Cabo A. Banda Rivera 115, Miraflores",7:00 - 23:00,926502863,3.4
+15,La Cocina Hamburguesería,Hamburguesería,Barranco,-12.139538,-77.019479,"Avenida El Sol Este 597, Barranco",8:00 - 23:00,957133627,4.2
+16,Don Juan Chifa,Chifa,Miraflores,-12.126627,-77.026849,"Sin nombre 217, Miraflores",10:00 - 23:00,995241273,3.5
+17,La Plaza Chifa,Chifa,Chorrillos,-12.190069,-77.022714,"Sin nombre 940, Chorrillos",9:00 - 23:00,925023946,4.8
+18,La Esquina Sushi,Sushi,Chorrillos,-12.199047,-76.995194,"Calle José Santos Chocano 654, Chorrillos",10:00 - 22:00,930566358,4.0
+19,La Plaza Cevichería,Cevichería,Barranco,-12.143176,-77.013918,"Jirón San Ambrosio 739, Barranco",9:00 - 22:00,935107037,4.7
+20,El Refugio Cevichería,Cevichería,Miraflores,-12.115363,-77.027308,"Calle General Suárez 762, Miraflores",9:00 - 21:00,913987196,4.6
+21,La Esquina Hamburguesería,Hamburguesería,Chorrillos,-12.199434,-76.98632,"Avenida Cordillera Blanca 367, Chorrillos",9:00 - 20:00,930731428,4.0
+22,La Brasa Parrilla,Parrilla,Barranco,-12.151094,-77.022089,"Jirón 28 de Julio 296, Barranco",10:00 - 21:00,968169100,3.9
+23,La Marina Pizzería,Pizzería,Miraflores,-12.118908,-77.043801,"Avenida José Pardo 168, Miraflores",8:00 - 23:00,998326836,3.2
+24,La Plaza Restaurante,Restaurante Criollo,Barranco,-12.14376,-77.015456,"Jirón Lima 256, Barranco",10:00 - 20:00,977680433,3.8
+25,La Marina Chifa,Chifa,Barranco,-12.132577,-77.020606,"Calle Francisco del Castillo 778, Barranco",8:00 - 21:00,970851458,3.4
+26,La Bahía Parrilla,Parrilla,Chorrillos,-12.18622,-77.007619,"Avenida Defensores del Morro 257, Chorrillos",8:00 - 22:00,933059695,4.4
+27,El Mar Sanguchería,Sanguchería,Barranco,-12.136289,-77.017403,"Sin nombre 278, Barranco",10:00 - 22:00,949519143,4.3
+28,El Sabor Chifa,Chifa,Chorrillos,-12.20097,-76.989336,"Avenida Cordillera Central 205, Chorrillos",7:00 - 20:00,911850103,3.7
+29,El Punto Parrilla,Parrilla,Miraflores,-12.12016,-77.035847,"Calle Bolognesi 475, Miraflores",7:00 - 23:00,962388393,3.9
+30,Los Amigos Hamburguesería,Hamburguesería,Barranco,-12.154113,-77.023142,"Calle José Diez Canseco 962, Barranco",8:00 - 20:00,916301459,4.0
