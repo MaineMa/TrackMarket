@@ -1,0 +1,321 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #fffef8;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* TOP BAR */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+}
+.back-btn:hover {
+  color: #1a1a1a;
+}
+
+.page-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.pedido-label {
+  margin-left: auto;
+  font-size: 0.84rem;
+  color: #888;
+}
+
+/* CARD genérico */
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.panel-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin-bottom: 12px;
+}
+
+/* ESTADO DE CARGA */
+.state-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 90px 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  color: #888;
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 4px solid #f0e6d4;
+  border-top-color: #e6a64b;
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-card {
+  color: #c62828;
+}
+.error-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+#errorMsg {
+  color: #888;
+  max-width: 420px;
+}
+
+.btn-volver {
+  margin-top: 6px;
+  padding: 10px 20px;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-volver:hover {
+  opacity: 0.85;
+}
+
+/* GRID PRINCIPAL */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  grid-template-areas:
+    "map side"
+    "bottom bottom";
+  gap: 20px;
+  align-items: start;
+}
+
+.map-panel {
+  grid-area: map;
+  padding: 0;
+  overflow: hidden;
+}
+
+#map {
+  width: 100%;
+  height: 560px;
+}
+
+.side-panel {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Fila debajo del mapa: Entrega en tiempo real + Pedido lado a lado */
+.bottom-row {
+  grid-area: bottom;
+  display: flex;
+  gap: 16px;
+}
+
+.bottom-row > .card {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Bloques con altura máxima + scroll, para no estirar la página
+   cuando hay muchos nombres de calle/nodos o muchos productos */
+.ucs-scroll,
+.entrega-scroll,
+.pedido-scroll {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ucs-scroll {
+  margin-bottom: 4px;
+}
+
+.ucs-scroll::-webkit-scrollbar,
+.entrega-scroll::-webkit-scrollbar,
+.pedido-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.ucs-scroll::-webkit-scrollbar-thumb,
+.entrega-scroll::-webkit-scrollbar-thumb,
+.pedido-scroll::-webkit-scrollbar-thumb {
+  background: #e6dcc4;
+  border-radius: 10px;
+}
+
+/* ESTADO UCS */
+.ucs-paso {
+  font-size: 0.84rem;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.ucs-ruta {
+  font-size: 0.86rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+
+.ucs-costo {
+  font-size: 0.84rem;
+  color: #555;
+}
+.ucs-costo strong {
+  color: #1a1a1a;
+}
+
+/* ENTREGA EN TIEMPO REAL */
+.entrega-estado {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2767a3;
+}
+
+.entrega-tramo {
+  font-size: 0.84rem;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.entrega-restante {
+  font-size: 0.84rem;
+  color: #888;
+}
+
+/* PEDIDO */
+.pedido-prod-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: #555;
+  padding: 6px 0;
+}
+
+.pedido-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* ICONOS DEL MAPA */
+.map-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.map-icon.casa {
+  background: #2e7d32;
+}
+
+.map-icon.tienda {
+  background: #e6a64b;
+}
+
+.map-icon.repartidor {
+  width: 28px;
+  height: 28px;
+  background: #1a1a1a;
+  font-size: 14px;
+}
+
+.map-icon.explorado {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e6a64b;
+  border: 1.5px solid #fff;
+  box-shadow: none;
+}
+
+.footer-note {
+  font-size: 0.78rem;
+  color: #aaa;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "map"
+      "side"
+      "bottom";
+  }
+  .bottom-row {
+    flex-direction: column;
+  }
+  #map {
+    height: 380px;
+  }
+}

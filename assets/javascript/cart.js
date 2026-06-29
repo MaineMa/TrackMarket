@@ -93,15 +93,15 @@ function cargarDireccion() {
   );
   const el = document.getElementById("direccionText");
 
-  if (!usuario || !usuario.district) {
+  if (!usuario || !usuario.distrito) {
     el.textContent = "Sin dirección registrada";
     return;
   }
 
-  const lat = parseFloat(usuario.latitude) || 0;
-  const lon = parseFloat(usuario.longitude) || 0;
+  const lat = parseFloat(usuario.latitud) || 0;
+  const lon = parseFloat(usuario.longitud) || 0;
 
-  el.innerHTML = `${esc(usuario.district)} — ${esc(usuario.street || "—")}
+  el.innerHTML = `${esc(usuario.distrito)} — ${esc(usuario.calle || "—")}
     <br><span style="font-weight:400;color:#777">(${lat.toFixed(2)}, ${lon.toFixed(2)})</span>`;
 }
 
@@ -118,9 +118,9 @@ function formatearVencimiento(input) {
   input.value = val;
 }
 
-// ── Validación ────────────────────────────
+// ── Validación + creación del pedido ──────
 
-function completarCompra() {
+async function completarCompra() {
   const carrito = obtenerCarrito();
   if (!carrito.length) {
     alert("El carrito está vacío.");
@@ -158,9 +158,135 @@ function completarCompra() {
     return;
   }
 
-  sessionStorage.removeItem("carrito");
-  alert("¡Compra completada con éxito!");
-  window.location.href = "restaurants.html";
+  const btn = document.querySelector(".btn-completar");
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "Procesando…";
+  }
+
+  try {
+    await guardarOrdenEnProceso(carrito, calcularSubtotal(carrito));
+    sessionStorage.removeItem("carrito");
+    alert("¡Compra completada con éxito! Sigue tu pedido en Mis Compras.");
+    window.location.href = "orders.html";
+  } catch (err) {
+    alert("Ocurrió un error al procesar tu compra: " + err.message);
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "Completar Compra";
+    }
+  }
+}
+
+// ── Órdenes en proceso / completadas ──────
+
+function obtenerOrdenesEnProceso() {
+  return JSON.parse(sessionStorage.getItem("ordenesEnProceso") || "[]");
+}
+
+function obtenerOrdenesCompletadas() {
+  return JSON.parse(sessionStorage.getItem("ordenesCompletadas") || "[]");
+}
+
+// El pedido se crea en estado "Preparando" dentro de ordenesEnProceso.
+// Su recorrido real (UCS + viaje en tiempo real) se calcula en
+// maproute.html; recién al llegar se mueve a ordenesCompletadas.
+async function guardarOrdenEnProceso(carrito, subtotal) {
+  const usuario = JSON.parse(
+    sessionStorage.getItem("usuarioRegistrado") || "null",
+  );
+  const idRestaurante = carrito[0].id_restaurante;
+  const restaurante = await obtenerRestaurantePorId(idRestaurante);
+
+  const ordenesProceso = obtenerOrdenesEnProceso();
+  const idsExistentes = [...ordenesProceso, ...obtenerOrdenesCompletadas()];
+
+  const nuevaOrden = {
+    id: generarIdOrden(idsExistentes),
+    fecha: new Date().toISOString(),
+    estado: "Preparando",
+    distrito: (usuario && usuario.distrito) || "—",
+    direccion: (usuario && usuario.calle) || "—",
+    origen: {
+      lat: usuario ? parseFloat(usuario.latitud) : null,
+      lon: usuario ? parseFloat(usuario.longitud) : null,
+    },
+    destino: {
+      lat: restaurante ? parseFloat(restaurante.latitud) : null,
+      lon: restaurante ? parseFloat(restaurante.longitud) : null,
+      nombre: restaurante ? restaurante.nombre : "Restaurante",
+    },
+    id_restaurante: idRestaurante,
+    productos: carrito,
+    totalProductos: carrito.reduce((sum, p) => sum + (p.cantidad || 1), 0),
+    subtotal: subtotal,
+    envio: ENVIO,
+    total: subtotal + ENVIO,
+  };
+
+  ordenesProceso.push(nuevaOrden);
+  sessionStorage.setItem("ordenesEnProceso", JSON.stringify(ordenesProceso));
+}
+
+async function obtenerRestaurantePorId(id) {
+  try {
+    const res = await fetch("../csvs/restaurants.csv");
+    if (!res.ok) return null;
+    const texto = await res.text();
+    const filas = parsearCSV(texto);
+    return filas.find((r) => String(r.id_restaurante) === String(id)) || null;
+  } catch (err) {
+    console.error("No se pudo cargar restaurants.csv:", err);
+    return null;
+  }
+}
+
+function parsearCSV(text) {
+  const lineas = text.trim().split("\n");
+  if (lineas.length < 2) return [];
+  const headers = parsearFila(lineas[0]);
+  const filas = [];
+  for (let i = 1; i < lineas.length; i++) {
+    const vals = parsearFila(lineas[i]);
+    if (vals.length < 2) continue;
+    const obj = {};
+    headers.forEach((h, idx) => {
+      obj[h.trim()] = (vals[idx] || "").trim();
+    });
+    filas.push(obj);
+  }
+  return filas;
+}
+
+function parsearFila(linea) {
+  const res = [];
+  let actual = "",
+    enComillas = false;
+  for (let i = 0; i < linea.length; i++) {
+    const ch = linea[i];
+    if (ch === '"') {
+      enComillas = !enComillas;
+    } else if (ch === "," && !enComillas) {
+      res.push(actual);
+      actual = "";
+    } else {
+      actual += ch;
+    }
+  }
+  res.push(actual);
+  return res;
+}
+
+function generarIdOrden(ordenes) {
+  const year = new Date().getFullYear();
+  let maxNum = 0;
+  ordenes.forEach((o) => {
+    const match = /^ORD-(\d{4})(\d{4,})$/.exec(o.id || "");
+    if (match && parseInt(match[1], 10) === year) {
+      maxNum = Math.max(maxNum, parseInt(match[2], 10));
+    }
+  });
+  return `ORD-${year}${String(maxNum + 1).padStart(4, "0")}`;
 }
 
 function esc(str) {
