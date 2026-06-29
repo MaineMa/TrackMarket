@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrackMarket - Recorrido en Mapa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/maproute.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="top-bar">
+        <button class="back-btn" onclick="volverAOrders()">← Volver</button>
+        <span class="page-title">Recorrido en Mapa</span>
+        <span class="pedido-label" id="pedidoIdLabel"></span>
+      </header>
+
+      <!-- ESTADO: CARGANDO -->
+      <div id="estadoCarga" class="state-card">
+        <div class="spinner"></div>
+        <p id="cargaMsg">Cargando direcciones del dataset…</p>
+      </div>
+
+      <!-- ESTADO: ERROR -->
+      <div id="estadoError" class="state-card error-card" style="display: none">
+        <p class="error-title">⚠ No se pudo calcular el recorrido</p>
+        <p id="errorMsg"></p>
+        <button class="btn-volver" onclick="volverAOrders()">
+          Volver a Mis Compras
+        </button>
+      </div>
+
+      <!-- CONTENIDO PRINCIPAL -->
+      <div id="contenido" class="main-grid" style="display: none">
+        <section class="card map-panel">
+          <div id="map"></div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="card">
+            <h3 class="panel-title">Estado UCS</h3>
+            <hr class="divider" />
+            <div class="ucs-scroll">
+              <p class="ucs-paso" id="pasoUCS">Preparando…</p>
+              <p class="ucs-ruta" id="rutaResumen"></p>
+            </div>
+            <p class="ucs-costo" id="costoTotalLine" style="display: none">
+              Costo total (tiempo estimado):
+              <strong id="costoTotal"></strong>
+            </p>
+          </section>
+        </aside>
+
+        <div class="bottom-row">
+          <section class="card" id="entregaCard" style="display: none">
+            <h3 class="panel-title">Entrega en tiempo real</h3>
+            <hr class="divider" />
+            <div class="entrega-scroll">
+              <p class="entrega-estado" id="estadoEntrega"></p>
+              <p class="entrega-tramo" id="progresoTramo"></p>
+              <p class="entrega-restante" id="tiempoRestante"></p>
+            </div>
+          </section>
+
+          <section class="card" id="pedidoCard">
+            <h3 class="panel-title" id="pedidoTitulo">Pedido</h3>
+            <hr class="divider" />
+            <div id="pedidoProductos" class="pedido-scroll"></div>
+            <hr class="divider" />
+            <div class="pedido-total-row">
+              <span>Total</span>
+              <span id="pedidoTotal">S/ 0.00</span>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <p class="footer-note" id="footerNote" style="display: none">
+        El mapa usa las coordenadas del dataset · El recorrido se calcula con
+        UCS sobre el grafo vial
+      </p>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="../../assets/javascript/maproute.js"></script>
+  </body>
+</html>

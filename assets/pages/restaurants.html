@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrackMarket - Restaurantes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/restaurants.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="top-bar">
+        <div class="logo-container">
+          <img
+            src="../../assets/images/trackmarket_logo.png"
+            alt="TrackMarket Logo"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="logo-fallback" style="display: none">TrackMarket</div>
+        </div>
+        <nav class="top-nav">
+          <span class="nav-item active">Restaurantes</span>
+          <a href="products.html" class="nav-item">Productos</a>
+          <a href="cart.html" class="nav-item">
+            Carrito
+            <span
+              id="carritoCount"
+              class="carrito-badge"
+              style="display: none"
+            ></span>
+          </a>
+          <a href="orders.html" class="nav-item">Mis Compras</a>
+          <a href="profile.html" class="nav-item">Perfil</a>
+        </nav>
+      </header>
+
+      <div class="controls-bar">
+        <div class="search-wrap">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Buscar por nombre o tipo..."
+            oninput="filtrar()"
+          />
+        </div>
+        <div class="filters">
+          <select id="filtroDist" onchange="filtrar()">
+            <option value="">Todos los distritos</option>
+            <option value="Chorrillos">Chorrillos</option>
+            <option value="Barranco">Barranco</option>
+            <option value="Miraflores">Miraflores</option>
+          </select>
+          <select id="filtroTipo" onchange="filtrar()">
+            <option value="">Todos los tipos</option>
+          </select>
+          <select id="filtroRating" onchange="filtrar()">
+            <option value="">Cualquier rating</option>
+            <option value="4">4+ ⭐</option>
+            <option value="4.5">4.5+ ⭐</option>
+          </select>
+        </div>
+        <div class="result-count" id="resultCount"></div>
+      </div>
+
+      <div id="loadState" class="load-state">
+        <p class="load-msg" id="loadMsg">Cargando restaurantes.csv…</p>
+      </div>
+
+      <div id="grid" class="cards-grid" style="display: none"></div>
+
+      <div id="emptyState" class="empty-state" style="display: none">
+        <p class="empty-title">Sin resultados</p>
+        <p class="empty-sub">Prueba con otros filtros o busca otro término.</p>
+      </div>
+    </div>
+
+    <script src="../../assets/javascript/restaurants.js"></script>
+  </body>
+</html>
