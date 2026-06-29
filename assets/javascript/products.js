@@ -9,6 +9,7 @@ let restActual = null;
 window.addEventListener("DOMContentLoaded", () => {
   setLoadMsg("Cargando datos…");
   cargarAmbos();
+  actualizarBadgeCarrito();
 });
 
 async function cargarAmbos() {
@@ -259,6 +260,7 @@ function añadirAlCarrito(idProducto, btn) {
   }
 
   sessionStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarBadgeCarrito();
 
   // Feedback visual
   const textoOriginal = btn.textContent;
@@ -268,4 +270,17 @@ function añadirAlCarrito(idProducto, btn) {
     btn.textContent = textoOriginal;
     btn.disabled = false;
   }, 800);
+}
+
+// Función nueva
+function actualizarBadgeCarrito() {
+  const carrito = JSON.parse(sessionStorage.getItem("carrito") || "[]");
+  const badge = document.getElementById("carritoCount");
+  if (!badge) return;
+  if (carrito.length > 0) {
+    badge.textContent = carrito.length;
+    badge.style.display = "inline-flex";
+  } else {
+    badge.style.display = "none";
+  }
 }
