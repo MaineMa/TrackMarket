@@ -250,6 +250,31 @@ function añadirAlCarrito(idProducto, btn) {
 
   const carrito = JSON.parse(sessionStorage.getItem("carrito") || "[]");
 
+  // Verificar si hay productos de otro restaurante
+  if (carrito.length > 0) {
+    const idRestCarrito = String(carrito[0].id_restaurante);
+    const idRestProducto = String(producto.id_restaurante);
+
+    if (idRestCarrito !== idRestProducto) {
+      const restAnterior = todosRest.find(
+        (r) => String(r.id_restaurante) === idRestCarrito,
+      );
+      const nombreAnterior = restAnterior
+        ? restAnterior.nombre
+        : `Restaurante #${idRestCarrito}`;
+
+      const confirmar = confirm(
+        `Tu carrito tiene productos de "${nombreAnterior}".\n\n` +
+          `¿Deseas vaciarlo y comenzar con productos de este restaurante?`,
+      );
+
+      if (!confirmar) return;
+
+      // Vaciar carrito y empezar con el nuevo producto
+      carrito.length = 0;
+    }
+  }
+
   const existente = carrito.find(
     (item) => String(item.id_producto) === String(idProducto),
   );
@@ -262,7 +287,6 @@ function añadirAlCarrito(idProducto, btn) {
   sessionStorage.setItem("carrito", JSON.stringify(carrito));
   actualizarBadgeCarrito();
 
-  // Feedback visual
   const textoOriginal = btn.textContent;
   btn.textContent = "✓ Añadido";
   btn.disabled = true;
