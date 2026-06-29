@@ -283,13 +283,9 @@ function configurarFormulario() {
       calle: document.getElementById("street").value,
       latitud: document.getElementById("latitude").value,
       longitud: document.getElementById("longitude").value,
+      fechaRegistro: new Date().toISOString(),
     };
 
-    // ── Guardar usuario en sessionStorage ───────────────
-    // sessionStorage vive solo en esta pestaña: se borra
-    // automáticamente al cerrarla, así que no necesitamos
-    // ninguna lógica extra de "expiración". main.js usará
-    // esto para validar el login.
     sessionStorage.setItem(
       "usuarioRegistrado",
       JSON.stringify({
