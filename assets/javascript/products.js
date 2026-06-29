@@ -199,6 +199,7 @@ function tarjetaProdHTML(p) {
             <p class="prod-precio">S/ ${precio.toFixed(2)} <span>soles</span></p>
             <span class="badge-disp ${disp ? "si" : "no"}">${disp ? "Disponible" : "No disponible"}</span>
         </div>
+        <button class="btn-añadir" onclick="añadirAlCarrito('${p.id_producto}', this)">+ Añadir</button>
     </div>`;
 }
 
@@ -238,4 +239,33 @@ function esc(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function añadirAlCarrito(idProducto, btn) {
+  const producto = todosProd.find(
+    (p) => String(p.id_producto) === String(idProducto),
+  );
+  if (!producto) return;
+
+  const carrito = JSON.parse(sessionStorage.getItem("carrito") || "[]");
+
+  const existente = carrito.find(
+    (item) => String(item.id_producto) === String(idProducto),
+  );
+  if (existente) {
+    existente.cantidad += 1;
+  } else {
+    carrito.push({ ...producto, cantidad: 1 });
+  }
+
+  sessionStorage.setItem("carrito", JSON.stringify(carrito));
+
+  // Feedback visual
+  const textoOriginal = btn.textContent;
+  btn.textContent = "✓ Añadido";
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = textoOriginal;
+    btn.disabled = false;
+  }, 800);
 }
