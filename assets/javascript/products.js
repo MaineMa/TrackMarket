@@ -9,6 +9,7 @@ let restActual = null;
 window.addEventListener("DOMContentLoaded", () => {
   setLoadMsg("Cargando datos…");
   cargarAmbos();
+  actualizarBadgeCarrito();
 });
 
 async function cargarAmbos() {
@@ -199,6 +200,7 @@ function tarjetaProdHTML(p) {
             <p class="prod-precio">S/ ${precio.toFixed(2)} <span>soles</span></p>
             <span class="badge-disp ${disp ? "si" : "no"}">${disp ? "Disponible" : "No disponible"}</span>
         </div>
+        <button class="btn-añadir" onclick="añadirAlCarrito('${p.id_producto}', this)">+ Añadir</button>
     </div>`;
 }
 
@@ -238,4 +240,71 @@ function esc(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function añadirAlCarrito(idProducto, btn) {
+  const producto = todosProd.find(
+    (p) => String(p.id_producto) === String(idProducto),
+  );
+  if (!producto) return;
+
+  const carrito = JSON.parse(sessionStorage.getItem("carrito") || "[]");
+
+  // Verificar si hay productos de otro restaurante
+  if (carrito.length > 0) {
+    const idRestCarrito = String(carrito[0].id_restaurante);
+    const idRestProducto = String(producto.id_restaurante);
+
+    if (idRestCarrito !== idRestProducto) {
+      const restAnterior = todosRest.find(
+        (r) => String(r.id_restaurante) === idRestCarrito,
+      );
+      const nombreAnterior = restAnterior
+        ? restAnterior.nombre
+        : `Restaurante #${idRestCarrito}`;
+
+      const confirmar = confirm(
+        `Tu carrito tiene productos de "${nombreAnterior}".\n\n` +
+          `¿Deseas vaciarlo y comenzar con productos de este restaurante?`,
+      );
+
+      if (!confirmar) return;
+
+      // Vaciar carrito y empezar con el nuevo producto
+      carrito.length = 0;
+    }
+  }
+
+  const existente = carrito.find(
+    (item) => String(item.id_producto) === String(idProducto),
+  );
+  if (existente) {
+    existente.cantidad += 1;
+  } else {
+    carrito.push({ ...producto, cantidad: 1 });
+  }
+
+  sessionStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarBadgeCarrito();
+
+  const textoOriginal = btn.textContent;
+  btn.textContent = "✓ Añadido";
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = textoOriginal;
+    btn.disabled = false;
+  }, 800);
+}
+
+// Función nueva
+function actualizarBadgeCarrito() {
+  const carrito = JSON.parse(sessionStorage.getItem("carrito") || "[]");
+  const badge = document.getElementById("carritoCount");
+  if (!badge) return;
+  if (carrito.length > 0) {
+    badge.textContent = carrito.length;
+    badge.style.display = "inline-flex";
+  } else {
+    badge.style.display = "none";
+  }
 }

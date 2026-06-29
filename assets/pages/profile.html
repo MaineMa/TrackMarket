@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrackMarket - Perfil de Usuario</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/profile.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="top-bar">
+        <button class="back-btn" onclick="history.back()">← Volver</button>
+        <span class="page-title">Perfil de Usuario</span>
+
+        <button class="btn-editar" id="btnEditar" onclick="entrarModoEdicion()">
+          Editar
+        </button>
+        <div class="edit-actions" id="editActions" style="display: none">
+          <button class="btn-cancelar" onclick="cancelarEdicion()">
+            Cancelar
+          </button>
+          <button class="btn-guardar" onclick="guardarPerfil()">Guardar</button>
+        </div>
+      </header>
+
+      <!-- SIN SESIÓN -->
+      <div id="sinSesion" class="state-card" style="display: none">
+        <p>No hay un usuario registrado en esta sesión.</p>
+        <button
+          class="btn-ir-login"
+          onclick="window.location.href = '../../main.html'"
+        >
+          Ir a Iniciar Sesión
+        </button>
+      </div>
+
+      <!-- CONTENIDO -->
+      <div id="contenidoPerfil" class="main-grid">
+        <aside class="card perfil-card">
+          <div class="avatar" id="avatarIniciales">--</div>
+          <p class="perfil-nombre" id="perfilNombre">—</p>
+          <p class="perfil-email" id="perfilEmail">—</p>
+          <span class="badge-cliente">Cliente activo</span>
+
+          <hr class="divider" />
+
+          <p class="stat-line" id="statCompras">0 compras totales</p>
+          <p class="stat-line" id="statMiembro">Miembro desde —</p>
+          <p class="stat-line" id="statUbicacion">—</p>
+        </aside>
+
+        <section class="card datos-card">
+          <h3 class="panel-title">Datos Personales</h3>
+          <hr class="divider" />
+
+          <div class="two-cols">
+            <div>
+              <label class="field-label">Nombre</label>
+              <input
+                type="text"
+                id="inputNombre"
+                class="field-input"
+                disabled
+              />
+            </div>
+            <div>
+              <label class="field-label">Apellido</label>
+              <input
+                type="text"
+                id="inputApellido"
+                class="field-input"
+                disabled
+              />
+            </div>
+          </div>
+
+          <label class="field-label">Correo Electrónico</label>
+          <input type="email" id="inputEmail" class="field-input" disabled />
+
+          <label class="field-label">Teléfono</label>
+          <input
+            type="text"
+            id="inputTelefono"
+            class="field-input"
+            maxlength="9"
+            disabled
+          />
+
+          <hr class="divider" />
+
+          <h3 class="panel-title">Ubicación (dataset)</h3>
+          <hr class="divider" />
+
+          <!-- Vista (solo lectura) -->
+          <div id="ubicacionVista">
+            <div class="ubicacion-resumen">
+              <span id="ubicacionResumenTexto">—</span>
+              <span class="chevron">▾</span>
+            </div>
+            <div class="mapa-placeholder">Ubicación actual en el mapa</div>
+            <p
+              class="ubicacion-bloqueada"
+              id="avisoUbicacionBloqueada"
+              style="display: none"
+            >
+              No puedes cambiar tu dirección mientras tengas un pedido en
+              proceso (revisa <strong>Mis Compras</strong>). Esto evita
+              inconsistencias con la entrega que ya se está calculando.
+            </p>
+          </div>
+
+          <!-- Edición (select de distrito + mapa real, como en registro) -->
+          <div id="ubicacionEdicion" style="display: none">
+            <label class="field-label">Distrito</label>
+            <select
+              id="districtEdit"
+              class="field-input"
+              onchange="filtrarPorDistritoEdit()"
+            >
+              <option value="">-- Seleccionar Distrito --</option>
+              <option value="Chorrillos">Chorrillos</option>
+              <option value="Barranco">Barranco</option>
+              <option value="Miraflores">Miraflores</option>
+            </select>
+
+            <p class="helper-text">
+              Selecciona un distrito y haz clic en un marcador para cambiar tu
+              dirección.
+            </p>
+
+            <div id="mapEdit"></div>
+
+            <p class="map-note" id="mapNoteEdit"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="../../assets/javascript/profile.js"></script>
+  </body>
+</html>

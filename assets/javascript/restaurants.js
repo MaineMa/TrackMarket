@@ -5,6 +5,7 @@ let tiposUnicos = new Set();
 
 window.addEventListener("DOMContentLoaded", () => {
   cargarCSV();
+  actualizarBadgeCarrito();
 });
 
 function cargarCSV() {
@@ -164,4 +165,16 @@ function esc(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function actualizarBadgeCarrito() {
+  const carrito = JSON.parse(sessionStorage.getItem("carrito") || "[]");
+  const badge = document.getElementById("carritoCount");
+  if (!badge) return;
+  if (carrito.length > 0) {
+    badge.textContent = carrito.length;
+    badge.style.display = "inline-flex";
+  } else {
+    badge.style.display = "none";
+  }
 }
